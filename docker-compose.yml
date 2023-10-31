@@ -1,0 +1,16 @@
+version: "3.9"
+name: rust-benchmark
+services:
+  rust-benchmark:
+    container_name: rust-benchmark
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - benchmark
+    ports:
+      - 5004:5004
+    restart: unless-stopped
+networks:
+  benchmark:
+    name: benchmark
